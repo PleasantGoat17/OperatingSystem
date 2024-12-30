@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            fx:controller="com.operating.controller._Virtual_Memory_Manage_Controller">
+    <top>
+        <MenuBar>
+            <Menu text="文件">
+                <MenuItem onAction="#handleOpenFile" text="打开文件"/>
+            </Menu>
+            <Menu text="切换调度算法">
+                <graphic>
+                    <Label fx:id="Current_Algorithm" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0"
+                           prefWidth="56.0" text="FIFO"/>
+                </graphic>
+                <MenuItem onAction="#handleSetFIFO" text="FIFO"/>
+                <MenuItem onAction="#handleSetLRU" text="LRU"/>
+                <MenuItem onAction="#handleSetLFU" text="LFU"/>
+            </Menu>
+            <Menu text="操作">
+                <MenuItem onAction="#handleRunAlgorithm" text="运行"/>
+                <MenuItem onAction="#handleClear" text="清空"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="页面序列">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <TextArea fx:id="PageSequenceTextArea" editable="false" prefHeight="250.0" prefWidth="800.0"
+                      style="-fx-control-inner-background: black; -fx-text-fill: white;">
+                <font>
+                    <Font name="Consolas" size="20.0"/>
+                </font>
+            </TextArea>
+            <Label text="淘汰的页面号">
+                <font>
+                    <Font size="24.0"/>
+                </font>
+            </Label>
+            <TextArea fx:id="EvictedPagesTextArea" editable="false" prefHeight="140.0" prefWidth="800.0"
+                      style="-fx-control-inner-background: black; -fx-text-fill: white;">
+                <font>
+                    <Font name="Consolas" size="20.0"/>
+                </font>
+            </TextArea>
+            <Label text="缺页总次数">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </Label>
+            <Label fx:id="PageFaultCountLabel" text="0">
+                <font>
+                    <Font size="20.0"/>
+                </font>
+            </Label>
+        </VBox>
+    </center>
+</BorderPane>

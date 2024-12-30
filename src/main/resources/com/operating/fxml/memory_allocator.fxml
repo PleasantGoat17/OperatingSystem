@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.operating.controller._Memory_Allocator_Controller">
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <Menu text="管理空间">
+                <MenuItem onAction="#handleAllocateMemory" text="分配空间"/>
+                <MenuItem onAction="#handleReleaseMemory" text="释放空间"/>
+            </Menu>
+            <Menu mnemonicParsing="false" text="切换分区方式">
+                <graphic>
+                    <Label fx:id="WAY" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0" prefWidth="56.0"
+                           text="固定分区"/>
+                </graphic>
+                <MenuItem onAction="#handleSetFixed_Partition" text="固定分区"/>
+                <MenuItem onAction="#handleSetVariable_Partition" text="可变分区"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1"/>
+                <TableColumn prefWidth="75.0" text="C2"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
