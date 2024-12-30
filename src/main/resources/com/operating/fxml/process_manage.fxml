@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.operating.controller._Process_Manage_Controller">
+    <top>
+        <MenuBar>
+            <Menu text="进程管理">
+                <MenuItem onAction="#handleCreateProcess" text="创建新进程"/>
+                <MenuItem onAction="#handleClearProcesses" text="清空进程"/>
+                <MenuItem onAction="#handleResetProcesses" text="重置进程"/>
+                <MenuItem onAction="#handleSimulateTime" text="模拟时间进度"/>
+            </Menu>
+            <Menu text="切换调度算法">
+                <MenuItem onAction="#handleSetFCFS" text="先来先服务 (FCFS)"/>
+                <MenuItem onAction="#handleSetRR" text="时间片轮转 (RR)"/>
+                <MenuItem onAction="#handleSetSJF" text="最短作业优先 (SJF)"/>
+                <MenuItem onAction="#handleSetPriorityScheduling" text="优先级调度(Priority Scheduling)"/>
+                <graphic>
+                    <Label fx:id="Algorithm" alignment="CENTER" contentDisplay="CENTER" prefHeight="15.0"
+                           prefWidth="133.0" text="FCFS"/>
+                </graphic>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <!-- 用于显示进程信息的表格 -->
+        <TableView fx:id="processTable" prefHeight="300.0" prefWidth="800.0">
+            <columns>
+                <TableColumn fx:id="colProcessID" minWidth="114.2" text="进程 ID"/>
+                <TableColumn fx:id="colBurstTime" minWidth="114.2" text="总运行时间"/>
+                <TableColumn fx:id="colRemainingTime" minWidth="114.2" text="剩余时间"/>
+                <TableColumn fx:id="colArrivalTime" minWidth="114.2" text="到达时间"/>
+                <TableColumn fx:id="colRemainingArrivalTime" minWidth="114.2" text="剩余到达时间"/>
+                <TableColumn fx:id="colPriority" minWidth="114.2" text="优先级"/>
+                <TableColumn fx:id="colState" minWidth="114.2" text="状态"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <TextArea fx:id="outputArea" editable="false" prefHeight="300.0"
+                  style="-fx-font-family: 'Consolas'; -fx-control-inner-background: black; -fx-text-fill: white;"/>
+    </bottom>
+</BorderPane>
